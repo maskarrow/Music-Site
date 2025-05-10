@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header class="top-bar">
+    <a th:href="@{/}">
+        <img src="/images/logo.png" alt="Logo" class="logo-img">
+    </a>
+    <input type="text" placeholder="Search your album" class="search-bar">
+
+    <div class="user-section">
+        <a th:href="@{/user}" class="username-link" th:text="${session.loggedInUser.username}">username</a>
+        <div class="dropdown">
+            <span class="menu-icon" onclick="toggleMenu()">☰</span>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="/albums">Album Page</a>
+                <a href="/tops">Tops</a>
+                <a href="/login">Login</a>
+                <a href="/logout">Logout</a>
+                <a href="/contact">Contact Page</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("dropdownMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+    document.addEventListener('click', function(event) {
+        const isClickInside = document.querySelector('.dropdown').contains(event.target);
+        if (!isClickInside) {
+            document.getElementById("dropdownMenu").style.display = "none";
+        }
+    });
+</script>
+
+<main class="contact-container">
+    <h2>User Profile</h2>
+
+    <section>
+        <h3>Your Ratings</h3>
+        <ul>
+            <li th:each="rating : ${ratings}">
+                Album ID: <span th:text="${rating.id_album}"></span> -
+                Rating: <span th:text="${rating.rating}"></span>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Your Reviews</h3>
+        <ul>
+            <li th:each="review : ${reviews}">
+                Album ID: <span th:text="${review.id_album}"></span> -
+                <q th:text="${review.content}">Review text</q> on
+                <span th:text="${#temporals.format(review.date, 'yyyy-MM-dd HH:mm')}">Date</span>
+            </li>
+        </ul>
+    </section>
+</main>
+
+</body>
+</html>
