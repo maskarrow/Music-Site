@@ -50,7 +50,7 @@ public class AlbumController {
 
         Album album = albumOpt.get();
         List<Review> reviews = reviewRepository.findByIdAlbum(id);
-        double avgRating = ratingRepository.calculateAverageRating(id);
+        Double avgRating = ratingRepository.calculateAverageRating(id);
 
         model.addAttribute("album", album);
         model.addAttribute("reviews", reviews);
@@ -61,6 +61,8 @@ public class AlbumController {
             model.addAttribute("userId", user.getId_user());
         }
 
-        return "album"; // This should map to album.html
+        return "album"; // trebuie să existe album.html
     }
+
+
 }

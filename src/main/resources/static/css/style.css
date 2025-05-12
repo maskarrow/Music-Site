@@ -437,3 +437,147 @@ html {
 .review-form {
     margin-top: 30px;
 }
+
+ .album-container {
+     max-width: 600px;
+     margin: 0 auto;
+     text-align: center;
+ }
+
+.album-cover-large {
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.album-title {
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+.album-info {
+    font-style: italic;
+    color: #777;
+}
+
+.album-rating {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.review-section {
+    margin-top: 30px;
+}
+
+.review-card {
+    background: #f3f3f3;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.review-form textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.review-form input[type="number"] {
+    width: 60px;
+}
+
+.review-form button {
+    margin-left: 10px;
+}
+
+.album-container {
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.album-cover-large {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.album-title {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.album-info {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.album-rating {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.review-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.review-card {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+.review-card p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.review-card small {
+    color: #555;
+    display: block;
+    margin-top: 8px;
+}
+
+.review-form {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.review-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+.review-form input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.review-form button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.review-form button:hover {
+    background-color: #21867a;
+}
