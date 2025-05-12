@@ -31,6 +31,13 @@ public interface RatingRepository extends JpaRepository<Rating, RatingId> {
 
 
     List<Rating> findByIdUser(int idUser);
+
+    @Query("SELECT new com.example.myapp.dto.AlbumRatingDTO(a, AVG(r.rating)) " +
+            "FROM Rating r JOIN Album a ON r.idAlbum = a.id_album " +
+            "WHERE LOWER(a.genre) = LOWER(:genre) " +
+            "GROUP BY a.id_album ORDER BY AVG(r.rating) DESC")
+    List<AlbumRatingDTO> findTopAlbumsByGenre(@Param("genre") String genre, Pageable pageable);
+
 }
 
 
