@@ -52,4 +52,23 @@ public class UserController {
 
         return "user"; // user.html
     }
+    @GetMapping("/signup")
+    public String showSignupForm(Model model) {
+        model.addAttribute("user", new User()); // this solves the missing `${user}`
+        return "signup";
+    }
+
+    @PostMapping("/signup")
+    public String handleSignup(@ModelAttribute("user") User user, Model model) {
+        if (userRepo.findByUsername(user.getUsername()).isPresent()) {
+            model.addAttribute("signupError", "Username already exists!");
+            return "signup";
+        }
+
+        user.setRole("user"); // default role
+        userRepo.save(user);
+
+        return "redirect:/login";
+    }
+
 }

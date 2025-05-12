@@ -43,4 +43,7 @@ public class AuthController {
         return "redirect:/";  // redirect to homepage
     }
 
+
+
+
 }

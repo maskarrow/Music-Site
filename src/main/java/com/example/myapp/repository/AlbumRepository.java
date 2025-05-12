@@ -8,4 +8,5 @@ import org.springframework.data.domain.Pageable;
 public interface AlbumRepository extends JpaRepository<Album, Integer> {
     List<Album> findTop10ByOrderByRelYearDesc();
     List<Album> findTop10ByOrderByRelYearDesc(Pageable pageable);
+    List<Album> findByTitleContainingIgnoreCase(String keyword);
 }
