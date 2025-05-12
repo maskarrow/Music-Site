@@ -11,7 +11,11 @@
         <img src="/images/logo.png" alt="Logo" class="logo-img">
     </a>
 
-    <input type="text" placeholder="Search your album" class="search-bar">
+    <form action="/albums/search" method="get" class="search-form">
+        <input type="text" name="query" placeholder="Search albums...">
+        <button type="submit">Search</button>
+    </form>
+
 
 
     <div class="user-section">

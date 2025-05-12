@@ -1,7 +1,6 @@
 package com.example.myapp.entity;
 
 import jakarta.persistence.*;
-import com.example.myapp.entity.RatingId;
 
 @Entity
 @Table(name = "Ratings")
@@ -18,7 +17,12 @@ public class Rating {
 
     private int rating;
 
-    // Getters and setters
+    // ✅ Relația ManyToOne către Album, necesară pentru JPQL
+    @ManyToOne
+    @JoinColumn(name = "id_album", insertable = false, updatable = false)
+    private Album album;
+
+    // --- Getters and setters ---
     public int getIdUser() {
         return idUser;
     }
@@ -42,5 +46,12 @@ public class Rating {
     public void setRating(int rating) {
         this.rating = rating;
     }
-}
 
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+}

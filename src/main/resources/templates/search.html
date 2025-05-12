@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>User Profile</title>
+    <title>Search Results</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-
 <header class="top-bar">
-    <a th:href="@{/}">
-        <img src="/images/logo.png" alt="Logo" class="logo-img">
-    </a>
+    <a th:href="@{/}"><img src="/images/logo.png" alt="Logo" class="logo-img"></a>
+
     <form action="/albums/search" method="get" class="search-form">
         <input type="text" name="query" placeholder="Search albums...">
         <button type="submit">Search</button>
@@ -18,7 +16,9 @@
 
 
     <div class="user-section">
-        <a th:href="@{/user}" class="username-link" th:text="${session.loggedInUser.username}">username</a>
+        <a th:href="@{/user}" class="username-link" th:if="${session.loggedInUser != null}" th:text="${session.loggedInUser.username}">username</a>
+        <span th:if="${session.loggedInUser == null}" class="username-link">Guest</span>
+
         <div class="dropdown">
             <span class="menu-icon" onclick="toggleMenu()">☰</span>
             <div class="dropdown-menu" id="dropdownMenu">
@@ -30,12 +30,12 @@
         </div>
     </div>
 </header>
-
 <script>
     function toggleMenu() {
         const menu = document.getElementById("dropdownMenu");
         menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
+
     document.addEventListener('click', function(event) {
         const isClickInside = document.querySelector('.dropdown').contains(event.target);
         if (!isClickInside) {
@@ -43,30 +43,20 @@
         }
     });
 </script>
+<main class="results-box">
+    <h2>Results for "<span th:text="${query}">search</span>":</h2>
 
-<main class="contact-container">
-    <h2>User Profile</h2>
+    <div class="album-grid" th:if="${results != null}">
+        <div class="album-card" th:each="album : ${results}">
+            <img th:src="${album.cover}" alt="Cover" class="album-cover">
+            <p><b th:text="${album.title}">Album Title</b></p>
+            <p th:text="${album.artist}">Artist</p>
+        </div>
+    </div>
 
-    <section>
-        <h3>Your Ratings</h3>
-        <ul>
-            <li th:each="rating : ${ratings}">
-                Album ID: <span th:text="${rating.id_album}"></span> -
-                Rating: <span th:text="${rating.rating}"></span>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>Your Reviews</h3>
-        <ul>
-            <li th:each="review : ${reviews}">
-                Album ID: <span th:text="${review.id_album}"></span> -
-                <q th:text="${review.content}">Review text</q> on
-                <span th:text="${#temporals.format(review.date, 'yyyy-MM-dd HH:mm')}">Date</span>
-            </li>
-        </ul>
-    </section>
+    <div th:if="${results.size() == 0}">
+        <p>No results found.</p>
+    </div>
 </main>
 
 </body>

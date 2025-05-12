@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${album.title}">Album</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header class="top-bar"> ... </header>
+
+<div class="album-container">
+    <img th:src="${album.cover}" alt="Cover" class="album-cover-large" />
+    <h1 th:text="${album.title}" class="album-title"></h1>
+    <p class="album-info" th:text="${album.artist + ' • ' + album.relYear}"></p>
+    <p class="album-rating">Average Rating: <span th:text="${avgRating}">0</span></p>
+
+    <div class="review-section">
+        <h3>Reviews:</h3>
+        <div class="review-card" th:each="review : ${reviews}">
+            <p th:text="${review.content}"></p>
+            <small>User ID: <span th:text="${review.id_user}"></span></small>
+        </div>
+    </div>
+
+    <div th:if="${userId != null}" class="review-form">
+        <form th:action="@{/reviews/add}" method="post">
+            <input type="hidden" name="id_user" th:value="${userId}">
+            <input type="hidden" name="id_album" th:value="${album.id_album}">
+            <textarea name="content" placeholder="Write a review..." required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+
+        <form th:action="@{/ratings/add}" method="post">
+            <input type="hidden" name="id_user" th:value="${userId}">
+            <input type="hidden" name="id_album" th:value="${album.id_album}">
+            <label>Rate this album:</label>
+            <input type="number" name="rating" min="1" max="10" required />
+            <button type="submit">Submit Rating</button>
+        </form>
+    </div>
+
+    <div th:if="${userId == null}">
+        <p style="text-align:center">Log in to leave a review or rating.</p>
+    </div>
+</div>
+
+</body>
+</html>

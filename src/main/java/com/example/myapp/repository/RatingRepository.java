@@ -1,4 +1,6 @@
 package com.example.myapp.repository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.example.myapp.dto.AlbumRatingDTO;
 import com.example.myapp.entity.Rating;
@@ -22,7 +24,10 @@ public interface RatingRepository extends JpaRepository<Rating, RatingId> {
             "GROUP BY a.id_album ORDER BY a.relYear DESC")
     List<AlbumRatingDTO> findLatestAlbums(Pageable pageable);
 
+    @Query("SELECT AVG(r.rating) FROM Rating r WHERE r.album.id_album = :albumId")
+    Double calculateAverageRating(@Param("albumId") int albumId);
 
+    List<Rating> findByIdAlbum(int albumId); // optional
 
 
     List<Rating> findByIdUser(int idUser);
