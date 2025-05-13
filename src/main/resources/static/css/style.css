@@ -581,3 +581,27 @@ html {
 .review-form button:hover {
     background-color: #21867a;
 }
+.genre-columns {
+    display: flex;
+    justify-content: center;     /* ✅ Center the columns horizontally */
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;           /* ✅ Prevents too wide spread */
+}
+
+.genre-column {
+    flex: 1 1 300px;
+    max-width: 300px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+
+    display: flex;               /* ✅ Add these */
+    flex-direction: column;
+    align-items: center;        /* ✅ This centers child content horizontally */
+}
+

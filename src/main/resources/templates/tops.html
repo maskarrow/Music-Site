@@ -94,7 +94,7 @@
     });
 </script>
 
-<main class="tops-container">
+<main class="tops-container" style="text-align:center;">
     <h1>Top 5 Albums by Genre</h1>
 
     <div class="genre-columns">
@@ -104,7 +104,7 @@
                 <img th:src="${album.album.cover}" alt="Cover">
                 <p><strong th:text="${album.album.title}">Title</strong></p>
                 <p th:text="${album.album.artist}">Artist</p>
-                <p>Rating:<p>Rating: <span th:text="${album.avgRating}">0</span></p>
+                <p>Rating: <span th:text="${album.avgRating}">0</span></p>
             </div>
         </div>
 
@@ -114,7 +114,7 @@
                 <img th:src="${album.album.cover}" alt="Cover">
                 <p><strong th:text="${album.album.title}">Title</strong></p>
                 <p th:text="${album.album.artist}">Artist</p>
-                <p>Rating: <p>Rating: <span th:text="${album.avgRating}">0</span></p>
+                <p>Rating: <span th:text="${album.avgRating}">0</span></p>
             </div>
         </div>
 
@@ -124,7 +124,7 @@
                 <img th:src="${album.album.cover}" alt="Cover">
                 <p><strong th:text="${album.album.title}">Title</strong></p>
                 <p th:text="${album.album.artist}">Artist</p>
-                <p>Rating: <p>Rating: <span th:text="${album.avgRating}">0</span></p>
+                <p>Rating: <span th:text="${album.avgRating}">0</span></p>
             </div>
         </div>
     </div>

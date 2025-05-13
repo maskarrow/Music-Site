@@ -26,6 +26,14 @@ public class Review {
     @JoinColumn(name = "id_user", insertable = false, updatable = false)
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "id_album", insertable = false, updatable = false)
+    private Album album;
+
+    public Album getAlbum() {
+        return album;
+    }
+
     // Getters and setters
     public int getIdReview() { return idReview; }
     public void setIdReview(int idReview) { this.idReview = idReview; }
