@@ -61,7 +61,7 @@ public class AlbumController {
             model.addAttribute("userId", user.getId_user());
         }
 
-        return "album"; // trebuie să existe album.html
+        return "album";
     }
 
 

@@ -17,12 +17,12 @@ public class Rating {
 
     private int rating;
 
-    // ✅ Relația ManyToOne către Album, necesară pentru JPQL
+
     @ManyToOne
     @JoinColumn(name = "id_album", insertable = false, updatable = false)
     private Album album;
 
-    // --- Getters and setters ---
+
     public int getIdUser() {
         return idUser;
     }

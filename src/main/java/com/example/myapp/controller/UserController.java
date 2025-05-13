@@ -27,14 +27,13 @@ public class UserController {
     @Autowired
     private ReviewRepository reviewRepo;
 
-    // JSON endpoint (optional, for debugging or APIs)
     @ResponseBody
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userRepo.findAll();
     }
 
-    // Web endpoint for user's profile page
+
     @GetMapping("/user")
     public String userProfile(HttpSession session, Model model) {
         User user = (User) session.getAttribute("loggedInUser");
@@ -50,11 +49,11 @@ public class UserController {
         model.addAttribute("ratings", userRatings);
         model.addAttribute("reviews", userReviews);
 
-        return "user"; // user.html
+        return "user";
     }
     @GetMapping("/signup")
     public String showSignupForm(Model model) {
-        model.addAttribute("user", new User()); // this solves the missing `${user}`
+        model.addAttribute("user", new User());
         return "signup";
     }
 
@@ -65,7 +64,7 @@ public class UserController {
             return "signup";
         }
 
-        user.setRole("user"); // default role
+        user.setRole("user");
         userRepo.save(user);
 
         return "redirect:/login";

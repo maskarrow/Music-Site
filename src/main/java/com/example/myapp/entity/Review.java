@@ -34,7 +34,7 @@ public class Review {
         return album;
     }
 
-    // Getters and setters
+
     public int getIdReview() { return idReview; }
     public void setIdReview(int idReview) { this.idReview = idReview; }
 

@@ -9,13 +9,13 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 12px 30px;
-    background-color: #8ACE00; /* sky blue */
+    background-color: #8ACE00;
     height: 80px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo-img {
-    height: 50px; /* logo is now cleanly sized */
+    height: 50px;
     width: auto;
 }
 
@@ -65,6 +65,7 @@ body {
     height: auto;
     border-radius: 5px;
 }
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -95,6 +96,7 @@ body {
 .dropdown-menu a:hover {
     background-color: #f0f0f0;
 }
+
 .contact-container {
     max-width: 800px;
     margin: 40px auto;
@@ -122,7 +124,6 @@ body {
     flex-wrap: wrap;
 }
 
-
 .bio {
     flex: 1;
     background: #f9f9f9;
@@ -130,11 +131,13 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 .logo-img {
-    height: 60px;   /* adjust as needed */
+    height: 60px;
     width: auto;
     object-fit: contain;
 }
+
 .contact-container {
     padding: 30px;
     text-align: center;
@@ -163,6 +166,7 @@ body {
     max-width: 400px;
     text-align: left;
 }
+
 .founders {
     margin-top: 40px;
     text-align: center;
@@ -171,14 +175,14 @@ body {
 .founder-layout {
     display: flex;
     justify-content: center;
-    align-items: center; /* aligns bios vertically with the image */
+    align-items: center;
     gap: 40px;
     margin-top: 40px;
     flex-wrap: nowrap;
 }
 
 .bio {
-    width: 320px; /* increased from 260-280 */
+    width: 320px;
     background-color: #f9f9f9;
     padding: 25px;
     border-radius: 10px;
@@ -186,7 +190,7 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     font-size: 15px;
     line-height: 1.6;
-    flex-shrink: 0; /* prevent shrinking on small screens */
+    flex-shrink: 0;
 }
 
 .founders-img-centered {
@@ -195,12 +199,13 @@ body {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
+
 .contact-container {
-    max-width: 1200px; /* increase if too narrow */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-
 }
+
 .album-card {
     text-align: center;
     padding: 10px;
@@ -210,7 +215,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 260px; /* fixed consistent height */
+    height: 260px;
 }
 
 .album-card img {
@@ -238,9 +243,10 @@ body {
 .rating-fill {
     height: 100%;
     background-color: #4CAF50;
-    width: 0%; /* dynamically set with inline style */
+    width: 0%;
     transition: width 0.5s ease-in-out;
 }
+
 .login-container {
     max-width: 400px;
     margin: 80px auto;
@@ -292,10 +298,12 @@ body {
 .login-form button:hover {
     background-color: #76b300;
 }
+
 html {
     margin: 0;
     padding: 0;
 }
+
 .username-link {
     font-weight: bold;
     font-size: 14px;
@@ -307,7 +315,7 @@ html {
 .username-link:hover {
     text-decoration: underline;
 }
-/* Search form wrapper */
+
 .search-form {
     display: flex;
     justify-content: center;
@@ -316,7 +324,6 @@ html {
     gap: 8px;
 }
 
-/* Search input styling */
 .search-form input[type="text"] {
     padding: 6px 10px;
     border: 1px solid #ccc;
@@ -325,7 +332,6 @@ html {
     width: 200px;
 }
 
-/* Search button styling */
 .search-form button {
     padding: 6px 12px;
     background-color: #76c800;
@@ -340,6 +346,7 @@ html {
 .search-form button:hover {
     background-color: #64a900;
 }
+
 .album-grid {
     display: flex;
     flex-wrap: wrap;
@@ -372,6 +379,7 @@ html {
     width: fit-content;
     box-shadow: 0 0 12px rgba(0,0,0,0.05);
 }
+
 .results-box {
     text-align: center;
     margin-top: 40px;
@@ -405,27 +413,33 @@ html {
     border-radius: 8px;
     margin-bottom: 12px;
 }
+
 .album-container {
     text-align: center;
     padding: 20px;
 }
+
 .album-cover-large {
     width: 250px;
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
 }
+
 .album-title {
     font-size: 2rem;
     font-weight: bold;
     margin-top: 10px;
 }
+
 .album-info {
     font-size: 1rem;
     color: gray;
 }
+
 .review-section {
     margin-top: 30px;
 }
+
 .review-card {
     border: 1px solid #eee;
     padding: 10px;
@@ -434,15 +448,16 @@ html {
     background: #f8f8f8;
     border-radius: 5px;
 }
+
 .review-form {
     margin-top: 30px;
 }
 
- .album-container {
-     max-width: 600px;
-     margin: 0 auto;
-     text-align: center;
- }
+.album-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
 
 .album-cover-large {
     width: 300px;
@@ -581,14 +596,15 @@ html {
 .review-form button:hover {
     background-color: #21867a;
 }
+
 .genre-columns {
     display: flex;
-    justify-content: center;     /* ✅ Center the columns horizontally */
+    justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 20px;
-    max-width: 1200px;           /* ✅ Prevents too wide spread */
+    max-width: 1200px;
 }
 
 .genre-column {
@@ -599,9 +615,7 @@ html {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
-
-    display: flex;               /* ✅ Add these */
+    display: flex;
     flex-direction: column;
-    align-items: center;        /* ✅ This centers child content horizontally */
+    align-items: center;
 }
-
