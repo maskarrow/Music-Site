@@ -11,7 +11,11 @@
         <img src="/images/logo.png" alt="Logo" class="logo-img">
     </a>
 
-    <input type="text" placeholder="Search your album" class="search-bar">
+    <form action="/albums/search" method="get" class="search-form">
+        <input type="text" name="query" placeholder="Search albums...">
+        <button type="submit">Search</button>
+    </form>
+
 
 
     <div class="user-section">
@@ -21,7 +25,6 @@
         <div class="dropdown">
             <span class="menu-icon" onclick="toggleMenu()">☰</span>
             <div class="dropdown-menu" id="dropdownMenu">
-                <a href="/albums">Album Page</a>
                 <a href="/tops">Tops</a>
                 <a href="/login">Login</a>
                 <a href="/logout">Logout</a>

@@ -27,14 +27,13 @@ public class UserController {
     @Autowired
     private ReviewRepository reviewRepo;
 
-    // JSON endpoint (optional, for debugging or APIs)
     @ResponseBody
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userRepo.findAll();
     }
 
-    // Web endpoint for user's profile page
+
     @GetMapping("/user")
     public String userProfile(HttpSession session, Model model) {
         User user = (User) session.getAttribute("loggedInUser");
@@ -50,6 +49,25 @@ public class UserController {
         model.addAttribute("ratings", userRatings);
         model.addAttribute("reviews", userReviews);
 
-        return "user"; // user.html
+        return "user";
     }
+    @GetMapping("/signup")
+    public String showSignupForm(Model model) {
+        model.addAttribute("user", new User());
+        return "signup";
+    }
+
+    @PostMapping("/signup")
+    public String handleSignup(@ModelAttribute("user") User user, Model model) {
+        if (userRepo.findByUsername(user.getUsername()).isPresent()) {
+            model.addAttribute("signupError", "Username already exists!");
+            return "signup";
+        }
+
+        user.setRole("user");
+        userRepo.save(user);
+
+        return "redirect:/login";
+    }
+
 }

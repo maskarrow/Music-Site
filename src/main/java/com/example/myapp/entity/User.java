@@ -3,7 +3,7 @@ package com.example.myapp.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +13,7 @@ public class User {
     private String email;
     private String password;
     private String role;
+    private transient String dateOfBirth; // not stored, just used for display
 
     public String getRole() {
         return role;
@@ -53,5 +54,11 @@ public class User {
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
 
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 }

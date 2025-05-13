@@ -22,7 +22,19 @@ public class Review {
 
     private LocalDateTime date;
 
-    // Getters and setters
+    @ManyToOne
+    @JoinColumn(name = "id_user", insertable = false, updatable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "id_album", insertable = false, updatable = false)
+    private Album album;
+
+    public Album getAlbum() {
+        return album;
+    }
+
+
     public int getIdReview() { return idReview; }
     public void setIdReview(int idReview) { this.idReview = idReview; }
 
@@ -37,4 +49,7 @@ public class Review {
 
     public LocalDateTime getDate() { return date; }
     public void setDate(LocalDateTime date) { this.date = date; }
+
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 }
